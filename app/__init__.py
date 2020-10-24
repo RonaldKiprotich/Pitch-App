@@ -13,10 +13,17 @@ def create_app(config_name):
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
 
+
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
 
     # Will add the views and forms
+
+
+    
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
 
     return app
