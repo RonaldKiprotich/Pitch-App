@@ -1,4 +1,12 @@
 {% extends 'base.html'%}
-{%block navbar %}
+<!-- {%block navbar %}
     {% include 'navbar.html' %}
-{% endblock %}
+{% endblock %} -->
+
+{% block content %}
+<h2>Welcome</h2>
+
+<div style="padding-bottom: 20px; text-align: center;">      
+          <a href="{{url_for('main.newPitch')}}" class="btn btn-info btn-center">Click to create a pitch</a>  
+</div>
+{%endblock%}

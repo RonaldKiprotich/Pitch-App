@@ -3,8 +3,8 @@ from flask_login import login_required,current_user
 from flask import  render_template
 from . import main
 from .. import db
-from ..models import User
-from .forms import UpdateProfile
+from ..models import User,Pitch
+from .forms import UpdateProfile,Pitch
 
 @main.route('/')
 def index():
@@ -39,3 +39,22 @@ def update_profile(uname):
         return redirect(url_for('.profile',uname=user.username))
 
     return render_template('profile/update.html',form =form)
+
+@main.route('/pitch/newPitch', methods=['POST','GET'])
+@login_required
+def newPitch():
+    pitch = Pitch()
+    if pitch.validate_on_submit():
+        pitch_title = pitch.pitch_title,data
+        category_name = pitch.category_name,data
+        text= pitch.text,data
+
+        #update pitch instance
+        newPitch = Pitch(title = pitch_title,category_name =category_name,comment =text,user= current_user )
+
+        #save pitch
+        newPitch.save_pitch()
+        return redirect(url_for('.index'))
+    title = 'NEW PITCH'
+    return render_template('new_pitch.html',title = title, new_pitch = pitch)
+
