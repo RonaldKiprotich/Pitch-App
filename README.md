@@ -51,3 +51,10 @@ This is a web application that allows various users to submit a short pitch. Use
 # Support and Contacts
 
 In case You have any issues using this code please do no hesitate to get in touch with me through protich12@gmail.com or leave a commit here on github.
+
+
+## Technologies Used
+- Python3.8
+- Flask framework
+- Bootstrap
+- PostgreSQL
