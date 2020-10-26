@@ -2,8 +2,8 @@ from flask import render_template,request,redirect,url_for,abort
 from flask_login import login_required,current_user
 from . import main
 from .. import db,photos
-from ..models import User,Pitch
-from .forms import UpdateProfile,PitchForm
+from ..models import User,Pitch,Comment
+from .forms import UpdateProfile,PitchForm,CommentForm
 
 @main.route('/')
 def index():
@@ -92,5 +92,22 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
+
+@main.route('/comment/<int:id>',methods= ['POST','GET'])
+@login_required
+def viewPitch(id):
+    comments = Comment.getComments(id)
+
+    commentForm = CommentForm()
+    if commentForm.validate_on_submit():
+        comment = commentForm.text.data
+
+        newComment = Comment(comment = comment, user  = current_user,pitch_id= id)
+
+        newComment.saveComment()
+
+    return render_template('comment.html',commentForm = commentForm,comments = comments)
 
 
