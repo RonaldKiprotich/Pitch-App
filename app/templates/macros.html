@@ -5,6 +5,11 @@
             <h4>{{pitch.title}}</h4>       
                 <p>{{pitch.content| truncate(100)}}</p>        
                 <p>Written by:  {{pitch.user.username}}
+                    <a class="pr-5">Like
+                        <i style='font-size:30px;color:rgb(16, 133, 26)' class="far fa-thumbs-up" (click)='upVote(quote)'></i>
+                      </a>
+                      <a class="pr-5">Dislike
+                        <i style='font-size:30px;color:red' (click)='downVote(quote)' class="far fa-thumbs-down"></i>
                  <a href="/comment/{{pitch.id}}" class="btn btn-primary pull-right">Comment</a> </p>     
         </div>    
     </div>  
