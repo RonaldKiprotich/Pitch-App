@@ -36,3 +36,8 @@ This is a web application that allows various users to submit a short pitch. Use
 * $ python3.8 -m pip install -r requirements.txt (install all dependencies)
 * Inside the manage.py module change the config_name parameter from 'production' to 'development' ie app = create_app('production') should be app = create_app('development')
 * $ ./start.sh
+
+# How it works
+
+* A user needs to sign up
+* A user the needs to sign in to vote and post pitches
