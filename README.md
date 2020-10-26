@@ -14,3 +14,12 @@ This is a web application that allows various users to submit a short pitch. Use
 * As a user I would like to comment on the different pitches and leave feedback.
 * As a user I would like to submit a pitch in any category.
 * As a user I would like to vote on the pitch they liked and give it a downvote or upvote.
+
+## Specifications
+| Behaviour | Input | Output |
+| --------------- | :----------:| --------: |
+|Display Various Pitch Categories | N/A | Various pitches grouped by category are displayed |
+|Display pitches | **Click** on a Category| A page with a list of pitches from the selected category |
+|Add new pitch | **Click** Create New pitch | User Should register/sign in to add new pitch |
+|View Pitches | **Click** on a pitch | View a pitch and comments |
+|Comment on a pitch | **Click** Comment | Registered User displays a form where a user can comment on a certain pitch |
