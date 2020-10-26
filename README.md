@@ -41,3 +41,13 @@ This is a web application that allows various users to submit a short pitch. Use
 
 * A user needs to sign up
 * A user the needs to sign in to vote and post pitches
+
+
+# CREDITS
+
+#### Google.com, StackOverflow.com and Miguel Grinberg -author of 'Flask Web Development, 2nd Edition'
+
+
+# Support and Contacts
+
+In case You have any issues using this code please do no hesitate to get in touch with me through protich12@gmail.com or leave a commit here on github.
