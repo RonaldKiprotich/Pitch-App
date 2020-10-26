@@ -23,3 +23,16 @@ This is a web application that allows various users to submit a short pitch. Use
 |Add new pitch | **Click** Create New pitch | User Should register/sign in to add new pitch |
 |View Pitches | **Click** on a pitch | View a pitch and comments |
 |Comment on a pitch | **Click** Comment | Registered User displays a form where a user can comment on a certain pitch |
+
+## Prerequisites
+* Python3.8
+
+## Setup/Installation Requirements
+* internet access
+* $ git clone https://github.com/RonaldKiprotich/Pitch-App.git
+* $ cd Pitch
+* $ python3.8 -m venv virtual (install virtual environment)
+* $ source virtual/bin/activate
+* $ python3.8 -m pip install -r requirements.txt (install all dependencies)
+* Inside the manage.py module change the config_name parameter from 'production' to 'development' ie app = create_app('production') should be app = create_app('development')
+* $ ./start.sh
