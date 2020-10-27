@@ -1,34 +1,39 @@
-{% extends 'base.html'%}
- {%block navbar %}
-    {% include 'navbar.html' %}
-{% endblock %} 
+<div class="container fluid">
 
-{% block content %}
-<h2>Welcome</h2>
-
-<div style="padding-bottom: 20px; text-align: left;">      
-  <a href="{{url_for('main.newPitch')}}" class="btn btn-info btn-center">Click to create a pitch</a>  
+    {% extends 'base.html'%}
+    {%block navbar %}
+       {% include 'navbar.html' %}
+   {% endblock %} 
+   
+   
+   {% block content %}
+   <!-- Jumbotron -->
+   <div class="card card-image" style="background-image: url(;">
+       <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+         <div class="py-5">
+     
+           <!-- Content -->
+           <h2 class="card-title h2 my-4 py-2">Welcome to Pitch-App.</h2>
+           <p class="mb-4 pb-2 px-md-5 mx-md-5">We are living in a hyper-competitive world. Unless you are able to communicate, your message remains confined to your vocal cords. Come let's pitch!</p>
+           <a href="{{url_for('main.newPitch')}}" class="btn green btn-center">Click to create a pitch</a> 
+     
+         </div>
+       </div>
+     </div>
+     <!-- Jumbotron -->
+   <div class="row  text-center pl-5 mt-4" >
+   <div class="text-center ">
+       <a href="{{url_for('main.display_promotion')}}" class="btn green ">Promotion Pitches</a> 
+       <a href="{{url_for('main.display_product')}}" class="btn green ">Product Pitches</a>
+       <a href="{{url_for('main.display_interview')}}" class="btn green ">Interview Pitches</a>
+       <a href="{{url_for('main.display_pickuplines')}}" class="btn green ">Pickup lines Pitches</a> 
+       <a href="{{url_for('main.profile',uname=current_user.username)}}" class="btn green ">View Your Profile</a> 
+   
+   
+   </div>
+     
+   </div>
+   
+   
+   {%endblock%}
 </div>
-
-
-<div style="padding-bottom: 20px; text-align: left;">      
-    <a href="{{url_for('main.display_promotion')}}" class="btn btn-info btn-center">Promotion Pitches</a>  
-</div>
-
-
-<div style="padding-bottom: 20px; text-align: left;">      
-    <a href="{{url_for('main.display_product')}}" class="btn btn-info btn-center">Product Pitches</a>  
-</div>
-
-
-<div style="padding-bottom: 20px; text-align: left;">      
-    <a href="{{url_for('main.display_interview')}}" class="btn btn-info btn-center">Interview Pitches</a>  
-</div>
-
-
-<div style="padding-bottom: 20px; text-align: left;">      
-    <a href="{{url_for('main.display_pickuplines')}}" class="btn btn-info btn-center">Pickup lines Pitches</a>  
-</div>
-
-
-{%endblock%}
