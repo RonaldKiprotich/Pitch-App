@@ -130,3 +130,20 @@ def upvote(id):
     return redirect(url_for('main.home',id=id))
 
 
+@main.route('/downvote/<int:id>',methods = ['POST','GET'])
+@login_required
+def downvote(id):
+    pitch = Downvotes.get_(id)
+    valid_string = f'{current_user.id}:{id}'
+    for p in pitch:
+        to_str = f'{p}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.home',id=id))
+        else:
+            continue
+    new_downvote = Downvotes(user = current_user, pitch_id=id)
+    new_downvote.save()
+    return redirect(url_for('main.home',id = id))
+
+
