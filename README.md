@@ -62,3 +62,8 @@ In case You have any issues using this code please do no hesitate to get in touc
 
 # Figma Wireframe Design Link.
 * https://www.figma.com/file/qoBxMtInc8Kqc5rNqQB6oc/Pitch-App?node-id=0%3A1
+
+
+## License
+* [[License: MIT]](LICENSE.md)
+* Copyright (c) 2019 **Ronald Kiprotich**
