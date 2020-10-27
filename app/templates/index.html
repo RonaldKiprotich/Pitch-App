@@ -1,4 +1,6 @@
-<div class="container fluid">
+
+
+<div class="container">
 
     {% extends 'base.html'%}
     {%block navbar %}
@@ -7,8 +9,9 @@
    
    
    {% block content %}
+   <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
    <!-- Jumbotron -->
-   <div class="card card-image" style="background-image: url(;">
+   <div id="jumbo"  >
        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
          <div class="py-5">
      
