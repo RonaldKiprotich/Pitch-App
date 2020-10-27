@@ -112,3 +112,21 @@ def viewPitch(id):
     return render_template('comment.html',commentForm = commentForm,comments = comments)
 
 
+
+@main.route('/upvote/<int:id>',methods = ['POST','GET'])
+@login_required
+def upvote(id):
+    get_pitches = Upvotes.get_upvotes(id)
+    valid_string = f'{current_user.id}:{id}'
+    for pitch in get_pitches:
+        to_str = f'{pitch}'
+        print(valid_string+" "+to_str)
+        if valid_string == to_str:
+            return redirect(url_for('main.home',id=id))
+        else:
+            continue
+    new_vote = Upvotes(user = current_user, pitch_id=id)
+    new_vote.save()
+    return redirect(url_for('main.home',id=id))
+
+
