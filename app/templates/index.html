@@ -27,17 +27,29 @@
      <!-- Jumbotron -->
    <div class="row  text-center pl-5 mt-4" >
    <div class="text-center ">
-       <a href="{{url_for('main.display_promotion')}}" class="btn green ">Promotion Pitches</a> 
-       <a href="{{url_for('main.display_product')}}" class="btn green ">Product Pitches</a>
-       <a href="{{url_for('main.display_interview')}}" class="btn green ">Interview Pitches</a>
-       <a href="{{url_for('main.display_pickuplines')}}" class="btn green ">Pickup lines Pitches</a> 
-       <a href="{{url_for('main.profile',uname=current_user.username)}}" class="btn green ">View Your Profile</a> 
+       <a href="{{url_for('main.display_promotion')}}" class="btn blue text-white">Promotion Pitches</a> 
+       <a href="{{url_for('main.display_product')}}" class="btn blue text-white ">Product Pitches</a>
+       <a href="{{url_for('main.display_interview')}}" class="btn blue text-white">Interview Pitches</a>
+       <a href="{{url_for('main.display_pickuplines')}}" class="btn blue text-white">Pickup lines Pitches</a> 
+       <a href="{{url_for('main.profile',uname=current_user.username)}}" class="btn blue text-white ">View Your Profile</a> 
    
    
    </div>
      
    </div>
    
+
+    <!-- Footer -->
+<footer class="page-footer font-small blue-grey darken-3">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="#">Pitch-App.</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
    
    {%endblock%}
 </div>
