@@ -13,8 +13,7 @@ class User(UserMixin,db.Model):
     password_secure = db.Column(db.String(255))
     pitches = db.relationship('Pitch',backref = 'user',lazy="dynamic")
     comments = db.relationship('Comment',backref =  'user',lazy = "dynamic")
-    likes = db.Column(db.Integer)
-    dislikes = db.Column(db.Integer)
+    
 
     @property
     def password(self):
@@ -47,6 +46,8 @@ class Pitch(db.Model):
     content = db.Column(db.String)
     category_name = db.Column(db.String)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    likes = db.Column(db.Integer)
+    dislikes = db.Column(db.Integer)
     
     comments = db.relationship('Comment', backref = 'pitch', lazy = "dynamic")
 
@@ -90,39 +91,4 @@ class Comment(db.Model):
         return comments
 
 
-
-class Upvotes(db.Model):
-    __tablename__ = 'upvotes'
-    id = db.Column(db.Integer,primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-    @classmethod
-    def get_upvotes(cls,id):
-        upvote = Upvotes.query.filter_by(pitch_id=id).all()
-        return upvote
-    def __repr__(self):
-        return f'{self.user_id}:{self.pitch_id}'
-
-
-
-class Downvotes(db.Model):
-    __tablename__ = 'downvotes'
-    id = db.Column(db.Integer,primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    pitch_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
-    @classmethod
-    def get_downvotes(cls,id):
-        downvote = Downvotes.query.filter_by(pitch_id=id).all()
-        return downvote
-    def __repr__(self):
-        return f'{self.user_id}:{self.pitch_id}'
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
 

@@ -60,12 +60,14 @@ def newPitch():
 
 @main.route('/category/interview', methods=['POST','GET'])
 def display_interview():
+    
     pitches = Pitch.get_pitches('interview')
     return render_template('categories/interview.html',pitches=pitches)
 
 
 @main.route('/category/product', methods=['POST','GET'])
 def display_product():
+    
     pitches = Pitch.get_pitches('product')
     return render_template('categories/product.html',pitches=pitches)
 
@@ -73,12 +75,14 @@ def display_product():
 
 @main.route('/category/promotion', methods=['POST','GET'])
 def display_promotion():
+    
     pitches = Pitch.get_pitches('promotion')
     return render_template('categories/promotion.html',pitches=pitches)
 
 
 @main.route('/category/pickuplines', methods=['POST','GET'])
 def display_pickuplines():
+    
     pitches = Pitch.get_pitches('Pickup')
     return render_template('categories/pickup.html',pitches=pitches)
 
@@ -111,39 +115,5 @@ def viewPitch(id):
 
     return render_template('comment.html',commentForm = commentForm,comments = comments)
 
-
-
-@main.route('/upvote/<int:id>',methods = ['POST','GET'])
-@login_required
-def upvote(id):
-    get_pitches = Upvotes.get_upvotes(id)
-    valid_string = f'{current_user.id}:{id}'
-    for pitch in get_pitches:
-        to_str = f'{pitch}'
-        print(valid_string+" "+to_str)
-        if valid_string == to_str:
-            return redirect(url_for('main.home',id=id))
-        else:
-            continue
-    new_vote = Upvotes(user = current_user, pitch_id=id)
-    new_vote.save()
-    return redirect(url_for('main.home',id=id))
-
-
-@main.route('/downvote/<int:id>',methods = ['POST','GET'])
-@login_required
-def downvote(id):
-    pitch = Downvotes.get_(id)
-    valid_string = f'{current_user.id}:{id}'
-    for p in pitch:
-        to_str = f'{p}'
-        print(valid_string+" "+to_str)
-        if valid_string == to_str:
-            return redirect(url_for('main.home',id=id))
-        else:
-            continue
-    new_downvote = Downvotes(user = current_user, pitch_id=id)
-    new_downvote.save()
-    return redirect(url_for('main.home',id = id))
 
 
